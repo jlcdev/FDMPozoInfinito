@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>FDM Pr&aacute;ctica 5</title>
+    <title>FDM Pràctica 5</title>
     <style>
         input[type=text] {
             width: 300px;
@@ -35,7 +35,8 @@
     <br>
     <div id="plot"></div>
     <br>
-    <button id="submit">Repintar</button>
+    Nombre de nivells: <input type="range" min="1" max="100" value="1" oninput="setSliderNumberInInput()" id="sliderN">
+    <input type="number" min="1" max="100" value="1" id="inputNumberN" oninput="setInputNumberInSlider()">
     <script>
         var a, n;
         a = 1;
@@ -57,10 +58,17 @@
             }
         }
 
-        document.getElementById('submit').onclick = function (event) {
-            event.preventDefault();
+        function setSliderNumberInInput(){
+            document.getElementById("inputNumberN").value = document.getElementById("sliderN").value;
+            a = document.getElementById("sliderN").value;
             draw();
-        };
+        }
+
+        function setInputNumberInSlider(){
+            document.getElementById("sliderN").value = document.getElementById("inputNumberN").value;
+            n = document.getElementById("inputNumberN").value;
+            draw();
+        }
 
         draw();
     </script>
