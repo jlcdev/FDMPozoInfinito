@@ -1,73 +1,80 @@
+<!DOCTYPE html>
 <html>
-
-<head>
-    <meta charset="utf-8">
-    <title>FDM Pràctica 5</title>
-    <style>
-        body,
-        html,
-        input {
+  <head>
+      <meta charset="utf-8">
+      <title>FDM Pràctica 5</title>
+      <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+      <style>
+          body, html, input{
             font-family: sans-serif;
             font-size: 11pt;
-        }
-    </style>
-</head>
-
-<body>
+          }
+          .center{
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+          }
+          .title{
+            font-family: 'Arvo', serif;
+            text-align: center;
+          }
+          .function-plot{
+            display: block;
+            margin: 0 auto;
+          }
+      </style>
+  </head>
+  <body>
+    <div>
+      <div>
+        <span class="title center">Funció d'ona</span>
+        <img class="center" src="./img/waveFunction.png" alt="wave function">
+      </div>
+      <div id="plot"></div>
+      <div>
+        <div class="center">
+          <span>Nombre de Nivells:</span>
+          <input type="range" min="1" max="20" value="1" id="sliderN">
+          <input type="number" min="1" max="20" value="1" id="inputNumberN">
+        </div>
+        <div class="center">
+          <span>Mida de la capsa:</span>
+          <input type="number" min="1" max="20" value="1" id="inputA">
+        </div>
+      </div>
+    </div>
     <script src="js/math.min.js"></script>
-    <script src="js/chart.min.js"></script>
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
-    <script src="https://wzrd.in/standalone/function-plot@1.14.0"></script>
-    Funció d'ona:
-    <img src="./img/waveFunction.png">
-    <br>
-    <div id="plot"></div>
-    <br>
-    Nombre de nivells: <input type="range" min="1" max="20" value="1" oninput="setSliderNumberInInput()" id="sliderN">
-    <input type="number" min="1" max="20" value="1" id="inputNumberN" oninput="setInputNumberInSlider()">
-    <br>
-    Mida de la capsa: 
-    <input type="number" min="1" max="20" value="1" id="inputA" oninput="setSizeBox()">
+    <script src="js/d3.min.js"></script>
+    <script src="js/function-plot.js"></script>
     <script>
-        var a, n;
-        a = 1;
-        n = 1;
-        function draw() {
-            try {
-                functionPlot({
-                    target: '#plot',
-                    data: [{
-                        fn: "sqrt(2 / " + a + ") * cos((" + n + "pi) * x / " + a + ")",
-                        sampler: 'builtIn',  // this will make function-plot use the evaluator of math.js
-                        graphType: 'polyline'
-                    }]
-                });
-            }
-            catch (err) {
-                console.log(err);
-                alert(err);
-            }
-        }
-
-        function setSliderNumberInInput(){
-            document.getElementById("inputNumberN").value = document.getElementById("sliderN").value;
-            n = document.getElementById("sliderN").value;
-            draw();
-        }
-
-        function setInputNumberInSlider(){
-            document.getElementById("sliderN").value = document.getElementById("inputNumberN").value;
-            n = document.getElementById("inputNumberN").value;
-            draw();
-        }
-
-        function setSizeBox(){
-            a = document.getElementById("inputA").value;
-            draw();
-        }
-
-        draw();
+      window.onload = draw
+      //Find required elements
+      let sliderElement = document.getElementById('sliderN')
+      let sliderBoxElement  = document.getElementById('inputNumberN')
+      let numericBoxElement = document.getElementById('inputA')
+      //Plot function in canvas
+      function draw(){
+        let a = numericBoxElement.value
+        let n = sliderBoxElement.value
+        functionPlot({
+          target: '#plot',
+          data:[{
+            fn: "sqrt(2 / " + a + ") * cos((" + n + "pi) * x / " + a + ")",
+            sampler: 'builtIn',
+            graphType: 'polyline'
+          }]
+        })
+      }
+      //Bind change event
+      sliderElement.addEventListener('change', function(){
+        sliderBoxElement.value = sliderElement.value
+        draw()
+      })
+      sliderBoxElement.addEventListener('change', function(){
+        sliderElement.value = sliderBoxElement.value
+        draw()
+      })
+      numericBoxElement.addEventListener('change', draw)
     </script>
-</body>
-
+  </body>
 </html>
