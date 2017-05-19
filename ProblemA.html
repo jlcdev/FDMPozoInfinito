@@ -58,6 +58,10 @@
         let n = sliderBoxElement.value
         functionPlot({
           target: '#plot',
+          xAxis: {domain: [-a/2, a/2]},
+          yAxis: {domain: [-2, 2]},
+          disableZoom: true,
+          grid: true,
           data:[{
             fn: "sqrt(2 / " + a + ") * cos((" + n + "pi) * x / " + a + ")",
             sampler: 'builtIn',
