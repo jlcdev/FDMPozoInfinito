@@ -66,11 +66,11 @@
         })
       }
       //Bind change event
-      sliderElement.addEventListener('change', function(){
+      sliderElement.addEventListener('input', function(){
         sliderBoxElement.value = sliderElement.value
         draw()
       })
-      sliderBoxElement.addEventListener('change', function(){
+      sliderBoxElement.addEventListener('input', function(){
         sliderElement.value = sliderBoxElement.value
         draw()
       })
