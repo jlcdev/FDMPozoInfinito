@@ -28,7 +28,7 @@
     <div>
       <div>
         <span class="title center">Densitat de probabilitat</span>
-        <img class="center" src="./img/waveFunction.png" alt="wave function">
+        <img class="center" src="./img/probDensityFunc.png" alt="wave function">
       </div>
       <div id="plot"></div>
       <div>
@@ -58,6 +58,10 @@
         let n = sliderBoxElement.value
         functionPlot({
           target: '#plot',
+          xAxis: {domain: [-a/2, a/2]},
+          yAxis: {domain: [-2.5, 2.5]},
+          disableZoom: true,
+          grid: true,
           data:[{
             fn: "(sqrt(2 / " + a + ") * cos((" + n + "pi) * x / " + a + "))^2",
             sampler: 'builtIn',
@@ -74,7 +78,7 @@
         sliderElement.value = sliderBoxElement.value
         draw()
       })
-      numericBoxElement.addEventListener('change', draw)
+      numericBoxElement.addEventListener('input', draw)
     </script>
   </body>
 </html>
