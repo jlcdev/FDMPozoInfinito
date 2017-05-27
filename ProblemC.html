@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>FDM Pràctica 5</title>
+    <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+    <style>
+        body,
+        html,
+        input {
+            font-family: sans-serif;
+            font-size: 11pt;
+        }
+
+        .center {
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .title {
+            font-family: 'Arvo', serif;
+            text-align: center;
+        }
+
+        .function-plot {
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div>
+            <span class="title center">Densitat de probabilitat</span>
+            <img class="center" src="./img/probDensityFunc.png" alt="wave function">
+        </div>
+        <div id="plot"></div>
+        <div>
+            <div class="center">
+                <span>Nombre de Nivells:</span>
+                <input type="range" min="1" max="20" value="1" id="sliderN">
+                <input type="number" min="1" max="20" value="1" id="inputNumberN">
+            </div>
+            <div class="center">
+                <span>Mida de la capsa:</span>
+                <input type="number" min="1" max="20" value="1" id="inputL">
+            </div>
+            <div class="center">
+                <span>Selecció del rang on cercar la partícula:</span>
+                <input type="number" min="-0.5" max="0.5" value="-0.5" step="0.1" id="inputA">
+                <span>fins a:</span>
+                <input type="number" min="-0.5" max="0.5" value="0.5" step="0.1" id="inputB">
+            </div>
+            <div class="center">
+                <span>Probabilitat:</span>
+                <input type="number" min="0" max="1" id="resultBox">
+            </div>
+        </div>
+    </div>
+    <script src="js/math.min.js"></script>
+    <script src="js/d3.min.js"></script>
+    <script src="js/function-plot.js"></script>
+    <script>
+        window.onload = calcProbability
+        //Find required elements
+        let sliderElement = document.getElementById('sliderN')
+        let sliderBoxElement = document.getElementById('inputNumberN')
+        let lBoxElement = document.getElementById('inputL')
+        let aBoxElement = document.getElementById('inputA')
+        let bBoxElement = document.getElementById('inputB')
+        let resultBoxElement = document.getElementById('resultBox')
+        function calcProbability()
+        {
+          let l = lBoxElement.value
+          let n = sliderBoxElement.value
+          let a = aBoxElement.value
+          let b = bBoxElement.value
+          resultBoxElement.value = Math.abs((2/Math.PI*n)*(Math.sin((Math.PI*b*n)/l)-Math.sin((Math.PI*a*n)/l)))
+          if(resultBoxElement.value >= 1) resultBoxElement.value = 1
+          if(resultBoxElement.value <= 0) resultBoxElement.value = 0
+        }
+        //Bind change event
+        sliderElement.addEventListener('input', function () {
+            sliderBoxElement.value = sliderElement.value
+            calcProbability()
+        })
+        sliderBoxElement.addEventListener('input', function () {
+            sliderElement.value = sliderBoxElement.value
+            calcProbability()
+        })
+        lBoxElement.addEventListener('input', function(){
+          if(bBoxElement.value >= lBoxElement.value) bBoxElement.value = lBoxElement.value
+          if(aBoxElement.value >= bBoxElement.value) aBoxElement.value = bBoxElement.value
+          calcProbability()
+        })
+        aBoxElement.addEventListener('input', function(){
+          if(aBoxElement.value >= bBoxElement.value) aBoxElement.value = bBoxElement.value
+          calcProbability()
+        })
+        bBoxElement.addEventListener('input', function(){
+          if(bBoxElement.value >= lBoxElement.value) bBoxElement.value = lBoxElement.value
+          calcProbability()
+        })
+    </script>
+</body>
+
+</html>
