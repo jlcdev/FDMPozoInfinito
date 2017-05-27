@@ -106,11 +106,12 @@
           calcProbability()
         })
         aBoxElement.addEventListener('input', function(){
-          if(aBoxElement.value >= bBoxElement.value) aBoxElement.value = bBoxElement.value
+          if(aBoxElement.value >= bBoxElement.value){ aBoxElement.value = bBoxElement.value}
+          if(aBoxElement.value <= -(lBoxElement.value/2)){ aBoxElement.value = -(lBoxElement.value/2)}
           calcProbability()
         })
         bBoxElement.addEventListener('input', function(){
-          if(bBoxElement.value >= lBoxElement.value) bBoxElement.value = lBoxElement.value
+          if(bBoxElement.value >= (lBoxElement.value/2)) bBoxElement.value = (lBoxElement.value/2)
           calcProbability()
         })
     </script>
