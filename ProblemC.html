@@ -28,6 +28,9 @@
             display: block;
             margin: 0 auto;
         }
+        .set-width {
+          width: 100px;
+        }
     </style>
 </head>
 
@@ -56,7 +59,7 @@
             </div>
             <div class="center">
                 <span>Probabilitat:</span>
-                <input type="number" min="0" max="1" id="resultBox">
+                <input type="number" min="0" max="1" id="resultBox" class="set-width">
             </div>
         </div>
     </div>
@@ -72,13 +75,19 @@
         let aBoxElement = document.getElementById('inputA')
         let bBoxElement = document.getElementById('inputB')
         let resultBoxElement = document.getElementById('resultBox')
+
+        function F(l, n, x){
+          return (Math.sin((2*Math.PI*n*x)/l)/(2*Math.PI*n))+(x/l)
+          //return math.eval("((sin(2*pi*"+n+")/"+l+") / (2*pi*"+n+")) + ("+x+"/"+l+")")
+        }
+
         function calcProbability()
         {
           let l = lBoxElement.value
           let n = sliderBoxElement.value
           let a = aBoxElement.value
           let b = bBoxElement.value
-          resultBoxElement.value = Math.abs((2/Math.PI*n)*(Math.sin((Math.PI*b*n)/l)-Math.sin((Math.PI*a*n)/l)))
+          resultBoxElement.value = math.format((F(l, n, b) - F(l, n, a)), 3)
           if(resultBoxElement.value >= 1) resultBoxElement.value = 1
           if(resultBoxElement.value <= 0) resultBoxElement.value = 0
         }
