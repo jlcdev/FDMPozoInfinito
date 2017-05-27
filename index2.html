@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+    <title>FDM Project</title>
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <style media="screen">
+      img.center{
+        display: block;
+        margin: 0 auto;
+      }
+      .function-plot{
+        display: block;
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="pink" role="navigation">
+      <div class="nav-wrapper container">
+        <a id="logo-container" href="#" class="brand-logo">FDM Projecte Pou Infinit</a>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="section">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5>El comportament d'una partícula qùantica tancada en un pou infinit i unidimensional ve determinat per:</h5>
+            <img src="img/pouImage.png" class="center">
+          </div>
+          <div class="col l6 s12">
+            <h5>Fòrmules empreades:</h5>
+            <img src="img/formules.png" class="center">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="section">
+        <ul class="collapsible" data-collapsible="accordion">
+          <li>
+            <div class="collapsible-header center-align">Representació Gràfica de la funció d'ona</div>
+            <div class="collapsible-body">
+              <div class="row">
+                <div class="col l12 s12">
+                  <img class="center" src="./img/waveFunction.png" alt="wave function">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col l12 s12">
+                  <div id="plot1"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col l12 s12">
+                  <span>Nombre de Nivells:</span>
+                  <div class="row">
+                    <div class="col l2 s12">
+                      <input type="number" min="1" max="7" value="1" id="level1">
+                    </div>
+                    <div class="col l10 s12">
+                      <input type="range" min="1" max="7" value="1" id="sliderLevel1">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col l12 s12">
+                  <span>Longitud de la capsa:</span>
+                  <input type="number" min="1" max="20" value="1" id="longitude1">
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header center-align">Densitat i probabilitat de trobar la partícula</div>
+            <div class="collapsible-body">
+              <div class="row">
+                <div class="col l12 s12">
+                  <img class="center" src="./img/probDensityFunc.png" alt="density wave function">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col l12 s12">
+                  <div id="plot2"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col l12 s12">
+                  <span>Nombre de Nivells:</span>
+                  <div class="row">
+                    <div class="col l2 s12">
+                      <input type="number" min="1" max="7" value="1" id="level2">
+                    </div>
+                    <div class="col l10 s12">
+                      <input type="range" min="1" max="7" value="1" id="sliderLevel2">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col l12 s12">
+                  <span>Longitud de la capsa:</span>
+                  <input type="number" min="1" max="20" value="1" id="longitude2">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col l4 s12">
+                  <span>Inici del rang:</span>
+                  <input type="number" value="-0.5" step="0.1"id="aBox2">
+                </div>
+                <div class="col l4 s12">
+                  <span>Final del rang:</span>
+                  <input type="number" value="0.5" step="0.1"id="bBox2">
+                </div>
+                <div class="col l4 s12">
+                  <span>Probabilitat de trobar la partícula:</span>
+                  <input type="number" value="1" id="result2" readonly>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header center-align">Representar i calcular els nivells d'energía i moment</div>
+            <div class="collapsible-body">
+              <div class="row">
+                <div class="col l12 s12">
+                  <img class="center" src="./img/elevelsmoment.png" alt="energy levels and moment formulas">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col l12 s12">
+                  <div id="plot3"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col l12 s12">
+                  <span>Nombre de Nivells:</span>
+                  <div class="row">
+                    <div class="col l2 s12">
+                      <input type="number" min="1" max="7" value="1" id="level3">
+                    </div>
+                    <div class="col l10 s12">
+                      <input type="range" min="1" max="7" value="1" id="sliderLevel3">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col l6 s12">
+                  <span>Longitud de la capsa:</span>
+                  <input type="number" min="1" max="20" value="1" id="longitude3">
+                </div>
+                <div class="col l6 s12">
+                  <span>Massa de la partícula:</span>
+                  <input type="number" value="1" step="0.01" id="mBox3">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col l6 s12">
+                  <span>Energia:</span>
+                  <input type="number" id="energy3" readonly>
+                </div>
+                <div class="col l6 s12">
+                  <span>Moment:</span>
+                  <input type="number" id="momentum3" readonly>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <footer class="page-footer pink darken-3">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Informació important</h5>
+            <p class="grey-text text-lighten-4">Projecte desenvolupat per Marc Ferré Monné i Javier López Calderón com a tasca per l'assignatura de Física dels Dispositius de Memòria.</p>
+          </div>
+          <div class="col l6 s12">
+            <h5 class="white-text"></h5>
+            <ul>
+              <li>
+                <img src="img/fib-upc-logo.png" alt="" width="400" class="center">
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright pink darken-4">
+        <div class="container center-align">
+          Universitat Politècnica de Barcelona - Facultat d'Informàtica de Barcelona 2017
+        </div>
+      </div>
+    </footer>
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="js/math.min.js"></script>
+    <script src="js/d3.min.js"></script>
+    <script src="js/function-plot.js"></script>
+    <script type="text/javascript">
+    let levelBox1 = document.getElementById("level1")
+    let sliderLevel1 = document.getElementById("sliderLevel1")
+    let longitudeBox1 = document.getElementById("longitude1")
+
+    let levelBox2 = document.getElementById("level2")
+    let sliderLevel2 = document.getElementById("sliderLevel2")
+    let longitudeBox2 = document.getElementById("longitude2")
+    let aBox2 = document.getElementById("aBox2")
+    let bBox2 = document.getElementById("bBox2")
+    let result2 = document.getElementById("result2")
+
+    let levelBox3 = document.getElementById("level3")
+    let sliderLevel3 = document.getElementById("sliderLevel3")
+    let longitudeBox3 = document.getElementById("longitude3")
+    let mBox3 = document.getElementById("mBox3")
+    let energy3 = document.getElementById("energy3")
+    let momentum3 = document.getElementById("momentum3")
+
+    sliderLevel1.addEventListener('input', function(){
+      levelBox1.value = sliderLevel1.value
+      printWaveFunction1()
+    })
+    levelBox1.addEventListener('input', function(){
+      sliderLevel1.value = levelBox1.value
+      printWaveFunction1()
+    })
+    longitudeBox1.addEventListener('input', function(){
+      printWaveFunction1()
+    })
+
+    sliderLevel2.addEventListener('input', function(){
+      levelBox2.value = sliderLevel2.value
+      printDensityFunction2()
+      calcProbability()
+    })
+    levelBox2.addEventListener('input', function(){
+      sliderLevel2.value = levelBox2.value
+      printDensityFunction2()
+      calcProbability()
+    })
+    longitudeBox2.addEventListener('input', function(){
+      aBox2.value = -(longitudeBox2.value/2)
+      bBox2.value = (longitudeBox2.value/2)
+      printDensityFunction2()
+      calcProbability()
+    })
+    aBox2.addEventListener('input', function(){
+      if(aBox2.value >= bBox2.value){ aBox2.value = bBox2.value}
+      if(aBox2.value <= -(longitudeBox2.value/2)){ aBox2.value = -(longitudeBox2.value/2)}
+      calcProbability()
+    })
+    bBox2.addEventListener('input', function(){
+      if(bBox2.value >= (longitudeBox2.value/2)) bBox2.value = (longitudeBox2.value/2)
+      calcProbability()
+    })
+
+    sliderLevel3.addEventListener('input', function(){
+      levelBox3.value = sliderLevel3.value
+      printEnergyLevel3()
+      getEnergy()
+      getMomentum()
+    })
+    levelBox1.addEventListener('input', function(){
+      sliderLevel3.value = levelBox3.value
+      printEnergyLevel3()
+      getEnergy()
+      getMomentum()
+    })
+    longitudeBox3.addEventListener('input', function(){
+      printEnergyLevel3()
+      getEnergy()
+      getMomentum()
+    })
+    mBox3.addEventListener('input', function(){
+      if(mBox3.value <= 0.01) mBox3.value = 0.02
+      printEnergyLevel3()
+      getEnergy()
+    })
+
+    function printWaveFunction1()
+    {
+      let l = checkMinValue(longitudeBox1.value)
+      let n = checkMinValue(levelBox1.value)
+      functionPlot({
+        target: '#plot1',
+        xAxis: {domain: [-l/2, l/2]},
+        yAxis: {domain: [-2, 2]},
+        disableZoom: true,
+        grid: true,
+        data:[{
+          fn: "sqrt(2 / " + l + ") * cos((" + n + "pi) * x / " + l + ")",
+          sampler: 'builtIn',
+          graphType: 'polyline'
+        }]
+      })
+    }
+
+    function printDensityFunction2()
+    {
+        let l = checkMinValue(longitudeBox2.value)
+        let n = checkMinValue(levelBox2.value)
+        functionPlot({
+            target: '#plot2',
+            xAxis: { domain: [-l/2, l/2] },
+            yAxis: { domain: [-2.5, 2.5] },
+            disableZoom: true,
+            grid: true,
+            data: [{
+                fn: "(sqrt(2 / " + l + ") * cos((" + n + "pi) * x / " + l + "))^2",
+                sampler: 'builtIn',
+                graphType: 'polyline'
+            }]
+        })
+    }
+
+    function printEnergyLevel3()
+    {
+        let l = checkMinValue(longitudeBox3.value)
+        let n = checkMinValue(levelBox3.value)
+        let m = checkMinValue(mBox3.value)
+        functionPlot({
+            target: '#plot3',
+            xAxis: { domain: [-l/2, l/2] },
+            yAxis: { domain: [0, 7] },
+            disableZoom: true,
+            grid: true,
+            data: [{
+                fn:"(pow(" + n + ", 2) * pow(pi, 2) * pow(pow(1.0545, -34), 2))/(2 * " + m + "* pow(" + l + ", 2))",
+                sampler: 'builtIn',
+                graphType: 'polyline'
+            }]
+        })
+    }
+
+    function checkMinValue(value)
+    {
+      if(value === undefined || (value === null && typeof value === "object")) return 1
+      else return value
+    }
+
+    function F(l, n, x){
+      return (Math.sin((2 * Math.PI * n * x)/l)/(2 * Math.PI * n))+(x/l)
+    }
+
+    function calcProbability()
+    {
+      let l = checkMinValue(longitudeBox2.value)
+      let n = checkMinValue(levelBox2.value)
+      let a = aBox2.value
+      let b = bBox2.value
+      result2.value = math.format((F(l, n, b) - F(l, n, a)), 3)
+      if(result2.value >= 1) result2.value = 1
+      if(result2.value <= 0) result2.value = 0
+    }
+
+    function getEnergy(){
+      let l = checkMinValue(longitudeBox3.value)
+      let n = checkMinValue(levelBox3.value)
+      let m = checkMinValue(mBox3.value)
+      energy3.value = math.format(math.eval('(pow(' + n + ', 2) * pow(pi, 2) * pow(pow(1.0545, -34), 2))/(2 * ' + m + '* pow(' + l + ', 2))'), 3)
+    }
+
+    function getMomentum(){
+      let l = checkMinValue(longitudeBox3.value)
+      let n = checkMinValue(levelBox3.value)
+      momentum3.value = math.format(math.eval('(' + n + ' * pi * pow(1.0545, -34))/(' + l + ')'), 3)
+    }
+
+    $(document).ready(()=>{
+      $('.collapsible').collapsible()
+      printWaveFunction1()
+      printDensityFunction2()
+      printEnergyLevel3()
+      getEnergy()
+      getMomentum()
+    });
+    </script>
+  </body>
+</html>
