@@ -42,81 +42,85 @@
           <li>
             <div class="collapsible-header center-align">Representació Gràfica de la funció d'ona</div>
             <div class="collapsible-body">
+
               <div class="row">
-                <div class="col l12 s12">
-                  <img class="center" src="./img/waveFunction.png" alt="wave function">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col l12 s12">
+                <div class="col l6 s12">
                   <div id="plot1"></div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col l12 s12">
-                  <span>Nombre de Nivells:</span>
+                <div class="col l6 s12">
                   <div class="row">
-                    <div class="col l2 s12">
-                      <input type="number" min="1" max="7" value="1" id="level1">
+                    <div class="col l12 s12">
+                      <img class="center" src="./img/formula1.png" alt="wave function">
                     </div>
-                    <div class="col l10 s12">
-                      <input type="range" min="1" max="7" value="1" id="sliderLevel1">
+                  </div>
+                  <div class="row">
+                    <div class="col l12 s12">
+                      <span>Nombre de Nivells:</span>
+                      <div class="row">
+                        <div class="col l2 s12">
+                          <input type="number" min="1" max="7" value="1" id="level1">
+                        </div>
+                        <div class="col l10 s12">
+                          <input type="range" min="1" max="7" value="1" id="sliderLevel1">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col l12 s12">
+                      <span>Mida del pou:</span>
+                      <input type="number" min="1" max="20" value="1" id="longitude1">
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="row">
-                <div class="col l12 s12">
-                  <span>Mida del pou:</span>
-                  <input type="number" min="1" max="20" value="1" id="longitude1">
-                </div>
-              </div>
+
             </div>
           </li>
           <li>
             <div class="collapsible-header center-align">Densitat i probabilitat de trobar la partícula</div>
             <div class="collapsible-body">
               <div class="row">
-                <div class="col l12 s12">
-                  <img class="center" src="./img/probDensityFunc.png" alt="density wave function">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col l12 s12">
+                <div class="col l6 s12">
                   <div id="plot2"></div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col l12 s12">
-                  <span>Nombre de Nivells:</span>
+                <div class="col l6 s12">
                   <div class="row">
-                    <div class="col l2 s12">
-                      <input type="number" min="1" max="7" value="1" id="level2">
-                    </div>
-                    <div class="col l10 s12">
-                      <input type="range" min="1" max="7" value="1" id="sliderLevel2">
+                    <div class="col l12 s12">
+                      <img class="center" src="./img/formula2.png" alt="density wave function">
                     </div>
                   </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col l12 s12">
-                  <span>Mida del pou:</span>
-                  <input type="number" min="1" max="20" value="1" id="longitude2">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col l4 s12">
-                  <span>Inici del rang:</span>
-                  <input type="number" value="-0.5" step="0.1"id="aBox2">
-                </div>
-                <div class="col l4 s12">
-                  <span>Final del rang:</span>
-                  <input type="number" value="0.5" step="0.1"id="bBox2">
-                </div>
-                <div class="col l4 s12">
-                  <span>Probabilitat de trobar la partícula:</span>
-                  <input type="number" value="1" id="result2" readonly>
+                  <div class="row">
+                    <div class="col l12 s12">
+                      <span>Nombre de Nivells:</span>
+                      <div class="row">
+                        <div class="col l2 s12">
+                          <input type="number" min="1" max="7" value="1" id="level2">
+                        </div>
+                        <div class="col l10 s12">
+                          <input type="range" min="1" max="7" value="1" id="sliderLevel2">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col l3 s12">
+                      <span>Mida del pou:</span>
+                      <input type="number" min="1" max="20" value="1" id="longitude2">
+                    </div>
+                    <div class="col l3 s12">
+                      <span>Inici del rang:</span>
+                      <input type="number" value="-0.5" step="0.1"id="aBox2">
+                    </div>
+                    <div class="col l3 s12">
+                      <span>Final del rang:</span>
+                      <input type="number" value="0.5" step="0.1"id="bBox2">
+                    </div>
+                    <div class="col l3 s12">
+                      <span>Probabilitat:</span>
+                      <input type="number" value="1" id="result2" readonly>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -125,46 +129,46 @@
             <div class="collapsible-header center-align">Representar i calcular els nivells d'energia i moment</div>
             <div class="collapsible-body">
               <div class="row">
-                <div class="col l12 s12">
-                  <img class="center" src="./img/elevelsmoment.png" alt="energy levels and moment formulas">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col l12 s12">
+                <div class="col l6 s12">
                   <div id="plot3"></div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col l12 s12">
-                  <span>Nombre de Nivells:</span>
+                <div class="col l6 s12">
                   <div class="row">
-                    <div class="col l2 s12">
-                      <input type="number" min="1" max="7" value="1" id="level3">
-                    </div>
-                    <div class="col l10 s12">
-                      <input type="range" min="1" max="7" value="1" id="sliderLevel3">
+                    <div class="col l12 s12">
+                      <img class="center" src="./img/elevelsmoment.png" alt="energy levels and moment formulas">
                     </div>
                   </div>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col l6 s12">
-                  <span>Mida del pou:</span>
-                  <input type="number" min="1" max="20" value="1" id="longitude3">
-                </div>
-                <div class="col l6 s12">
-                  <span>Massa de la partícula:</span>
-                  <input type="number" value="1" step="0.01" id="mBox3">
-                </div>
-              </div>
-              <div class="row">
-                <div class="col l6 s12">
-                  <span>Energia:</span>
-                  <input type="number" id="energy3" readonly>
-                </div>
-                <div class="col l6 s12">
-                  <span>Moment:</span>
-                  <input type="number" id="momentum3" readonly>
+                  <div class="row">
+                    <div class="col l12 s12">
+                      <span>Nombre de Nivells:</span>
+                      <div class="row">
+                        <div class="col l2 s12">
+                          <input type="number" min="1" max="7" value="1" id="level3">
+                        </div>
+                        <div class="col l10 s12">
+                          <input type="range" min="1" max="7" value="1" id="sliderLevel3">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col l3 s12">
+                      <span>Mida del pou:</span>
+                      <input type="number" min="1" max="20" value="1" id="longitude3">
+                    </div>
+                    <div class="col l3 s12">
+                      <span>Massa:</span>
+                      <input type="number" value="1" step="0.01" id="mBox3">
+                    </div>
+                    <div class="col l3 s12">
+                      <span>Energia:</span>
+                      <input type="number" id="energy3" readonly>
+                    </div>
+                    <div class="col l3 s12">
+                      <span>Moment:</span>
+                      <input type="number" id="momentum3" readonly>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
