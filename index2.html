@@ -342,7 +342,7 @@
     }
 
     function F(l, n, x){
-      return (Math.sin((2 * Math.PI * n * x)/l)/(2 * Math.PI * n))+(x/l)
+      return (Math.sin((2 * Math.PI * (2 * n -1)* x)/l)/(2 * Math.PI * (2 * n -1)))+(x/l)
     }
 
     function calcProbability()
