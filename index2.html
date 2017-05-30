@@ -291,7 +291,7 @@
         disableZoom: true,
         grid: true,
         data:[{
-          fn: "sqrt(2 / " + l + ") * cos((" + n + "pi) * x / " + l + ")",
+          fn: "sqrt(2 / " + l + ") * cos((2*" + n + "-1) * pi * x / " + l + ")",
           sampler: 'builtIn',
           graphType: 'polyline'
         }]
@@ -309,7 +309,7 @@
             disableZoom: true,
             grid: true,
             data: [{
-                fn: "(sqrt(2 / " + l + ") * cos((" + n + "pi) * x / " + l + "))^2",
+                fn: "(sqrt(2 / " + l + ") * cos((2*" + n + "-1) * pi * x / " + l + "))^2",
                 sampler: 'builtIn',
                 graphType: 'polyline'
             }]
