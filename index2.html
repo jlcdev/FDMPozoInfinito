@@ -253,6 +253,7 @@
     })
     bBox2.addEventListener('input', function(){
       if(bBox2.value >= (longitudeBox2.value/2)) bBox2.value = (longitudeBox2.value/2)
+      if(bBox2.value <= -(longitudeBox2.value/2)) bBox2.value = -(longitudeBox2.value/2)
       calcProbability()
     })
 
