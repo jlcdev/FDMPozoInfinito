@@ -200,89 +200,89 @@
     <script src="js/d3.min.js"></script>
     <script src="js/function-plot.js"></script>
     <script type="text/javascript">
-    let levelBox1 = document.getElementById("level1")
-    let sliderLevel1 = document.getElementById("sliderLevel1")
-    let longitudeBox1 = document.getElementById("longitude1")
+    var levelBox1 = document.getElementById("level1");
+    var sliderLevel1 = document.getElementById("sliderLevel1");
+    var longitudeBox1 = document.getElementById("longitude1");
 
-    let levelBox2 = document.getElementById("level2")
-    let sliderLevel2 = document.getElementById("sliderLevel2")
-    let longitudeBox2 = document.getElementById("longitude2")
-    let aBox2 = document.getElementById("aBox2")
-    let bBox2 = document.getElementById("bBox2")
-    let result2 = document.getElementById("result2")
+    var levelBox2 = document.getElementById("level2");
+    var sliderLevel2 = document.getElementById("sliderLevel2");
+    var longitudeBox2 = document.getElementById("longitude2");
+    var aBox2 = document.getElementById("aBox2");
+    var bBox2 = document.getElementById("bBox2");
+    var result2 = document.getElementById("result2");
 
-    let levelBox3 = document.getElementById("level3")
-    let sliderLevel3 = document.getElementById("sliderLevel3")
-    let longitudeBox3 = document.getElementById("longitude3")
-    let mBox3 = document.getElementById("mBox3")
-    let energy3 = document.getElementById("energy3")
-    let momentum3 = document.getElementById("momentum3")
+    var levelBox3 = document.getElementById("level3");
+    var sliderLevel3 = document.getElementById("sliderLevel3");
+    var longitudeBox3 = document.getElementById("longitude3");
+    var mBox3 = document.getElementById("mBox3");
+    var energy3 = document.getElementById("energy3");
+    var momentum3 = document.getElementById("momentum3");
 
     sliderLevel1.addEventListener('input', function(){
-      levelBox1.value = sliderLevel1.value
-      printWaveFunction1()
+      levelBox1.value = sliderLevel1.value;
+      printWaveFunction1();
     })
     levelBox1.addEventListener('input', function(){
-      sliderLevel1.value = levelBox1.value
-      printWaveFunction1()
+      sliderLevel1.value = levelBox1.value;
+      printWaveFunction1();
     })
     longitudeBox1.addEventListener('input', function(){
-      printWaveFunction1()
+      printWaveFunction1();
     })
 
     sliderLevel2.addEventListener('input', function(){
-      levelBox2.value = sliderLevel2.value
-      printDensityFunction2()
-      calcProbability()
+      levelBox2.value = sliderLevel2.value;
+      printDensityFunction2();
+      calcProbability();
     })
     levelBox2.addEventListener('input', function(){
-      sliderLevel2.value = levelBox2.value
-      printDensityFunction2()
-      calcProbability()
+      sliderLevel2.value = levelBox2.value;
+      printDensityFunction2();
+      calcProbability();
     })
     longitudeBox2.addEventListener('input', function(){
-      aBox2.value = -(longitudeBox2.value/2)
-      bBox2.value = (longitudeBox2.value/2)
-      printDensityFunction2()
-      calcProbability()
+      aBox2.value = -(longitudeBox2.value/2);
+      bBox2.value = (longitudeBox2.value/2);
+      printDensityFunction2();
+      calcProbability();
     })
     aBox2.addEventListener('input', function(){
-      if(aBox2.value >= bBox2.value){ aBox2.value = bBox2.value}
-      if(aBox2.value <= -(longitudeBox2.value/2)){ aBox2.value = -(longitudeBox2.value/2)}
-      calcProbability()
+      if(aBox2.value >= bBox2.value){ aBox2.value = bBox2.value; }
+      if(aBox2.value <= -(longitudeBox2.value/2)){ aBox2.value = -(longitudeBox2.value/2); }
+      calcProbability();
     })
     bBox2.addEventListener('input', function(){
-      if(bBox2.value >= (longitudeBox2.value/2)) bBox2.value = (longitudeBox2.value/2)
-      if(bBox2.value <= -(longitudeBox2.value/2)) bBox2.value = -(longitudeBox2.value/2)
-      calcProbability()
+      if(bBox2.value >= (longitudeBox2.value/2)) bBox2.value = (longitudeBox2.value/2);
+      if(bBox2.value <= -(longitudeBox2.value/2)) bBox2.value = -(longitudeBox2.value/2);
+      calcProbability();
     })
 
     sliderLevel3.addEventListener('input', function(){
-      levelBox3.value = sliderLevel3.value
-      printEnergyLevel3()
-      getEnergy()
-      getMomentum()
+      levelBox3.value = sliderLevel3.value;
+      printEnergyLevel3();
+      getEnergy();
+      getMomentum();
     })
     levelBox1.addEventListener('input', function(){
-      sliderLevel3.value = levelBox3.value
-      printEnergyLevel3()
-      getEnergy()
-      getMomentum()
+      sliderLevel3.value = levelBox3.value;
+      printEnergyLevel3();
+      getEnergy();
+      getMomentum();
     })
     longitudeBox3.addEventListener('input', function(){
-      printEnergyLevel3()
-      getEnergy()
-      getMomentum()
+      printEnergyLevel3();
+      getEnergy();
+      getMomentum();
     })
     mBox3.addEventListener('input', function(){
-      printEnergyLevel3()
-      getEnergy()
+      printEnergyLevel3();
+      getEnergy();
     })
 
     function printWaveFunction1()
     {
-      let l = checkMinValue(longitudeBox1.value)
-      let n = checkMinValue(levelBox1.value)
+      var l = checkMinValue(longitudeBox1.value);
+      var n = checkMinValue(levelBox1.value);
       functionPlot({
         target: '#plot1',
         xAxis: {domain: [-l/2, l/2]},
@@ -294,13 +294,13 @@
           sampler: 'builtIn',
           graphType: 'polyline'
         }]
-      })
+      });
     }
 
     function printDensityFunction2()
     {
-        let l = checkMinValue(longitudeBox2.value)
-        let n = checkMinValue(levelBox2.value)
+        var l = checkMinValue(longitudeBox2.value);
+        var n = checkMinValue(levelBox2.value);
         functionPlot({
             target: '#plot2',
             xAxis: { domain: [-l/2, l/2] },
@@ -312,14 +312,14 @@
                 sampler: 'builtIn',
                 graphType: 'polyline'
             }]
-        })
+        });
     }
 
     function printEnergyLevel3()
     {
-        let l = checkMinValue(longitudeBox3.value)
-        let n = checkMinValue(levelBox3.value)
-        let m = checkMinValue(mBox3.value)
+        var l = checkMinValue(longitudeBox3.value);
+        var n = checkMinValue(levelBox3.value);
+        var m = checkMinValue(mBox3.value);
         functionPlot({
             target: '#plot3',
             xAxis: { domain: [-l/2, l/2] },
@@ -331,50 +331,50 @@
                 sampler: 'builtIn',
                 graphType: 'polyline'
             }]
-        })
+        });
     }
 
     function checkMinValue(value)
     {
-      if(value === undefined || (value === null && typeof value === "object")) return 1
-      else return value
+      if(value === undefined || (value === null && typeof value === "object")) return 1;
+      else return value;
     }
 
     function F(l, n, x){
-      return (Math.sin((2 * Math.PI * (2 * n -1)* x)/l)/(2 * Math.PI * (2 * n -1)))+(x/l)
+      return (Math.sin((2 * Math.PI * (2 * n -1)* x)/l)/(2 * Math.PI * (2 * n -1)))+(x/l);
     }
 
     function calcProbability()
     {
-      let l = checkMinValue(longitudeBox2.value)
-      let n = checkMinValue(levelBox2.value)
-      let a = aBox2.value
-      let b = bBox2.value
-      result2.value = math.format((F(l, n, b) - F(l, n, a)), 3)
-      if(result2.value >= 1) result2.value = 1
-      if(result2.value <= 0) result2.value = 0
+      var l = checkMinValue(longitudeBox2.value);
+      var n = checkMinValue(levelBox2.value);
+      var a = aBox2.value;
+      var b = bBox2.value;
+      result2.value = math.format((F(l, n, b) - F(l, n, a)), 3);
+      if(result2.value >= 1) result2.value = 1;
+      if(result2.value <= 0) result2.value = 0;
     }
 
     function getEnergy(){
-      let l = checkMinValue(longitudeBox3.value)
-      let n = checkMinValue(levelBox3.value)
-      let m = checkMinValue(mBox3.value)
-      energy3.value = math.format(math.eval('(pow(' + n + ', 2) * pow(pi, 2) * pow(pow(1.0545, -34), 2))/(2 * ' + m + '* pow(' + l + ', 2))'), 3)
+      var l = checkMinValue(longitudeBox3.value);
+      var n = checkMinValue(levelBox3.value);
+      var m = checkMinValue(mBox3.value);
+      energy3.value = math.format(math.eval('(pow(' + n + ', 2) * pow(pi, 2) * pow(pow(1.0545, -34), 2))/(2 * ' + m + '* pow(' + l + ', 2))'), 3);
     }
 
     function getMomentum(){
-      let l = checkMinValue(longitudeBox3.value)
-      let n = checkMinValue(levelBox3.value)
-      momentum3.value = math.format(math.eval('(' + n + ' * pi * pow(1.0545, -34))/(' + l + ')'), 3)
+      var l = checkMinValue(longitudeBox3.value);
+      var n = checkMinValue(levelBox3.value);
+      momentum3.value = math.format(math.eval('(' + n + ' * pi * pow(1.0545, -34))/(' + l + ')'), 3);
     }
 
     $(document).ready(()=>{
-      $('.collapsible').collapsible()
-      printWaveFunction1()
-      printDensityFunction2()
-      printEnergyLevel3()
-      getEnergy()
-      getMomentum()
+      $('.collapsible').collapsible();
+      printWaveFunction1();
+      printDensityFunction2();
+      printEnergyLevel3();
+      getEnergy();
+      getMomentum();
     });
     </script>
   </body>
